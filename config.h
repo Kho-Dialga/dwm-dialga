@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int gappih    = 17;       /* horiz inner gap between windows */
@@ -11,7 +11,9 @@ static const unsigned int gappov    = 17;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10", "Noto Color Emoji:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Fantasque Sans Mono:size=12:antialias=true:autohint=true",
+"Noto Color Emoji:size=11:antialias=true:autohint=true",
+"DejaVu Sans:size=12:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -55,12 +57,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "TTT",      bstack},
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "H[]",	deck },	/* Master on left, slaves in monocle-like mode on right */
 	{ "[M]",      monocle },
- 	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -85,8 +82,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,            		XK_z,      incrgaps,       {.i = +3 } },
@@ -99,12 +94,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_u,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,             XK_Y,      setlayout,      {.v = &layouts[6]} },
-	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[7]} },
-	{ MODKEY|ShiftMask,             XK_i,      setlayout,      {.v = &layouts[8]} },
+	{ MODKEY,             		XK_u,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  zoom,	   {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
