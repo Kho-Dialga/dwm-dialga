@@ -1200,7 +1200,7 @@ loadxrdb()
       xrdb = XrmGetStringDatabase(resm);
 
       if (xrdb != NULL) {
-        XRDB_LOAD_COLOR("dwm.color6", normbordercolor);
+        XRDB_LOAD_COLOR("dwm.color1", normbordercolor);
         XRDB_LOAD_COLOR("dwm.color4", normbgcolor);
         XRDB_LOAD_COLOR("dwm.foreground", normfgcolor);
         XRDB_LOAD_COLOR("dwm.color1", selbordercolor);
@@ -2739,3 +2739,4 @@ tile(Monitor *m)
 			sy += HEIGHT(c) + ih;
 		}
 }
+
